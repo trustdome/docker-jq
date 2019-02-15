@@ -5,24 +5,12 @@ This image also contains [curl](https://curl.haxx.se/) to make HTTP requests.
 
 ## Usage
 
-Test `jq` command:
+You can create bash function like:
 
 ```bash
-$ docker run --rm --name jq endeveit/docker-jq \
-  sh -c 'echo "{\"foo\":\"bar\"}" | jq .'
-{
-  "foo": "bar"
-}
+function jq() { docker run -i fatihustundag/docker-jq "$@"; }
 ```
 
-Start an interactive container with jq:
-
 ```
-$ docker run -it --rm --name jq endeveit/docker-jq
-```
-
-This will drop into `/bin/sh`, then `jq` command can be run:
-
-```bash
-# jq
+$ echo '{"foo":"bar"}' | jq -C .
 ```

@@ -1,8 +1,4 @@
-FROM alpine
-MAINTAINER Nikita Vershinin <endeveit@gmail.com>
-
-RUN apk add --update --no-cache curl jq
-
+FROM alpine:3.11
+RUN apk add --update --no-cache curl jq bash
 ENTRYPOINT ["jq"]
-
 CMD ["--help"]
